@@ -6,7 +6,7 @@ import java.util.List;
 public class Sanguchetto {
 
 	private static Sanguchetto instance = new Sanguchetto();
-	private List<Ingrediente> ingredientes = new LinkedList<Ingrediente>();
+	private List<Ingrediente> ingredientes = new LinkedList<>();
 	
 	private Sanguchetto(){}
 	
@@ -19,6 +19,7 @@ public class Sanguchetto {
 	 */
 	public void vaciar(){
 		// Implementar
+		ingredientes.clear();
 	}
 	
 	/**
@@ -27,6 +28,7 @@ public class Sanguchetto {
 	 */
 	public void agregarIngrediente(Ingrediente ingrediente){
 		// Implementar
+		ingredientes.add(ingrediente);
 	}
 	
 	/**
@@ -35,7 +37,13 @@ public class Sanguchetto {
 	 */
 	public List<Ingrediente> verIngredientes(){
 		// Implementar
-		return null;
+		List<Ingrediente> soloIngredientes = new LinkedList<>();
+		for(Ingrediente ingrediente : ingredientes){
+			if(ingrediente.getTipo().equals(TipoIngrediente.INGREDIENTE)){
+				soloIngredientes.add(ingrediente);
+			}
+		}
+		return soloIngredientes;
 	}
 	
 	/**
@@ -44,7 +52,13 @@ public class Sanguchetto {
      */
     public List<Ingrediente> verCondimentos(){
         // Implementar
-        return null;
+		List<Ingrediente> soloCondimentos = new LinkedList<>();
+		for(Ingrediente ingrediente : ingredientes){
+			if(ingrediente.getTipo().equals(TipoIngrediente.CONDIMENTO)){
+				soloCondimentos.add(ingrediente);
+			}
+		}
+		return soloCondimentos;
     }
 	
 	/**
@@ -53,6 +67,10 @@ public class Sanguchetto {
 	 */
 	public Double getPrecio(){
 		// Implementar
-		return null;
+		Double precio = 0.0;
+		for(Ingrediente ingrediente : ingredientes){
+			precio += ingrediente.getPrecio();
+		}
+		return precio;
 	}
 }
