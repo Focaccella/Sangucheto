@@ -3,9 +3,16 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Insert title here</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/estilos.css"/>
+		<title>Inicio</title>
 	</head>
-	<body>
-		<h1>Home Sanguchetto</h1>
+	<body >
+		<div class="col-md-4 col-xs-4 text-center center-block float-none">
+			<div class="espacio-arriba">
+				<img src="/Sangucheto/images/sanguche-inicio.png"/>
+				<p>Sangucheto</p>
+			</div>
+		</div>
 	</body>
 </html>
