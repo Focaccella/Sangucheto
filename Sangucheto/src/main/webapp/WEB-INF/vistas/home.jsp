@@ -8,14 +8,14 @@
 		<link href="css/estilos.css" rel="stylesheet"/>
 		<title>Inicio</title>
 	</head>
-	<body class="sans">
+	<body class="sans cremita">
 		<div class="col-md-7 col-xs-4 text-center center-block float-none">
 			<div class="col-md-12 espacio-arriba">
 				<img src="images/sanguche-inicio.png"/>
 				<h1 class="muy-grande">Sangucheto</h1>
 				<ul class=" lista-en-linea sacar-puntos grande separar">
 					<li class="display-en-linea"><a href="">Armar Sangucheto</a></li>
-					<li class="display-en-linea"><a href="">Administrar Stock</a></li>
+					<li class="display-en-linea"><a href="./stock">Administrar Stock</a></li>
 				</ul>
 			</div>
 		</div>
