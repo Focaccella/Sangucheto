@@ -1,9 +1,13 @@
 div img{
-	width: 50%;	
+	width: 70%;	
 }
 /*esto es para ubicar los div graficamente, despues lo borro*/
-div{
-	border: 1px solid black;
+
+
+.sans{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
 }
 
 .colorRojo{
@@ -15,5 +19,33 @@ div{
 }
 
 .espacio-arriba{
-	margin-top:50%;
+	margin-top:20%;
+}
+
+.lista-en-linea{
+	display:inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.sacar-puntos li{
+	list-style-type: none;
+}
+
+.display-en-linea{
+	display: inline-block;
+}
+
+.grande {
+	font-size: 2em;
+	padding: 5px;
+}
+
+.muy-grande{
+	font-size: 4em;
+	padding: 10px;
+}
+.separar li{
+	padding-left: 10px;
+	padding-right: 10px;
 }
