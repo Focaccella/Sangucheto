@@ -1,0 +1,19 @@
+div img{
+	width: 50%;	
+}
+/*esto es para ubicar los div graficamente, despues lo borro*/
+div{
+	border: 1px solid black;
+}
+
+.colorRojo{
+	background-color: red;
+}
+
+.float-none { 
+	float: none;
+}
+
+.espacio-arriba{
+	margin-top:50%;
+}
