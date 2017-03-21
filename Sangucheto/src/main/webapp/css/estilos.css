@@ -2,9 +2,7 @@ body{
 	background-color: #fefbe5;
 }
 
-div img{
-	width: 70%;	
-}
+
 /*esto es para ubicar los div graficamente, despues lo borro*/
 
 
@@ -23,7 +21,7 @@ div img{
 }
 
 .espacio-arriba{
-	margin-top:20%;
+	margin-top:10%;
 }
 
 .lista-en-linea{

@@ -14,10 +14,5 @@ public class ControladorHome {
 	public ModelAndView irAHome(){
 		return new ModelAndView("home");
 	}
-	
-	@RequestMapping(path="/stock")
-	public ModelAndView irAStock(){
-		ModelMap mm = new ModelMap("stock", Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock", mm);
-	}
+
 }
