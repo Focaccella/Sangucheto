@@ -15,7 +15,15 @@ public class Stock {
 	private static Stock instance = new Stock();
 	private Map<Ingrediente, Integer> stock = new HashMap<Ingrediente, Integer>();
 	
+	// Ingredientes iniciales en el stock
 	private Stock(){
+		stock.put(new Ingrediente("Pollo", 20.0, TipoIngrediente.INGREDIENTE), 20);
+		stock.put(new Ingrediente("Carne", 20.0, TipoIngrediente.INGREDIENTE), 30);
+		stock.put(new Ingrediente("Jamón", 20.0, TipoIngrediente.INGREDIENTE), 25);
+		stock.put(new Ingrediente("Mayonesa", 2.0, TipoIngrediente.CONDIMENTO), 50);
+		stock.put(new Ingrediente("Mostaza", 2.0, TipoIngrediente.CONDIMENTO), 50);
+		stock.put(new Ingrediente("Ketchup", 2.0, TipoIngrediente.CONDIMENTO), 50);
+		stock.put(new Ingrediente("Picante", 10.0, TipoIngrediente.CONDIMENTO), 50);
 	}
 
 	public static Stock getInstance(){

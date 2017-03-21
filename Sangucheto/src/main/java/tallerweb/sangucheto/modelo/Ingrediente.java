@@ -6,6 +6,12 @@ public class Ingrediente {
     private Double precio;
     private TipoIngrediente tipo;
     
+    public Ingrediente(String nombre, Double precio, TipoIngrediente tipo){
+    	this.nombre = nombre;
+    	this.precio = precio;
+    	this.tipo = tipo;
+    }
+    
     public String getNombre() {
         return nombre;
     }
