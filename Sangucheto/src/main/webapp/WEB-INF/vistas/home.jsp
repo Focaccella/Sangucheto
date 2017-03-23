@@ -14,7 +14,7 @@
 				<img class="img-responsive display-en-linea col-xs-12" src="images/sanguche-inicio.png"/>
 				<h1 class="muy-grande col-md-12 col-xs-12">Sangucheto</h1>
 				<ul class=" lista-en-linea sacar-puntos grande separar">
-					<li class="display-en-linea"><a href="">Armar Sangucheto</a></li>
+					<li class="display-en-linea"><a href="./sangucheto">Armar Sangucheto</a></li>
 					<li class="display-en-linea"><a href="./stock">Administrar Stock</a></li>
 				</ul>
 			</div>

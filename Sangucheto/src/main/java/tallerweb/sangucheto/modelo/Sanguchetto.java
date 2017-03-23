@@ -1,14 +1,18 @@
 package tallerweb.sangucheto.modelo;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class Sanguchetto {
 
 	private static Sanguchetto instance = new Sanguchetto();
-	private List<Ingrediente> ingredientes = new LinkedList<>();
+	private Map<Ingrediente, Integer> ingredientes = new HashMap<>();
 	
-	private Sanguchetto(){}
+	private Sanguchetto(){
+		agregarIngrediente(new Ingrediente("Mayonesa", 20.0, TipoIngrediente.INGREDIENTE),20);
+	}
 	
 	public static Sanguchetto getInstance(){
 		return instance;
@@ -26,21 +30,29 @@ public class Sanguchetto {
 	 * Agrega un ingrediente al carrito.<br>
 	 * @param ingrediente
 	 */
-	public void agregarIngrediente(Ingrediente ingrediente){
+	public void agregarIngrediente(Ingrediente ingrediente, Integer cantidad){
 		// Implementar
-		ingredientes.add(ingrediente);
+		ingredientes.put(ingrediente, cantidad);
 	}
+	
+	/**
+	 * Obtener los ingredientes
+	 */
+	public Map<Ingrediente, Integer> getIngredientes(){
+		return ingredientes;
+	}
+	
 	
 	/**
 	 * Lista todos los ingredientes que forman parte del sanguchetto.<br>
 	 * @return
 	 */
-	public List<Ingrediente> verIngredientes(){
+	public Map<Ingrediente, Integer> verIngredientes(){
 		// Implementar
-		List<Ingrediente> soloIngredientes = new LinkedList<>();
-		for(Ingrediente ingrediente : ingredientes){
+		Map<Ingrediente, Integer> soloIngredientes = new HashMap<>();
+		for(Ingrediente ingrediente : ingredientes.keySet()){
 			if(ingrediente.getTipo().equals(TipoIngrediente.INGREDIENTE)){
-				soloIngredientes.add(ingrediente);
+				soloIngredientes.put(ingrediente, ingredientes.get(ingrediente));
 			}
 		}
 		return soloIngredientes;
@@ -50,17 +62,16 @@ public class Sanguchetto {
      * Lista todos los condimentos que forman parte del sanguchetto.<br>
      * @return
      */
-    public List<Ingrediente> verCondimentos(){
-        // Implementar
-		List<Ingrediente> soloCondimentos = new LinkedList<>();
-		for(Ingrediente ingrediente : ingredientes){
+	public Map<Ingrediente, Integer> verCondimentos(){
+		// Implementar
+		Map<Ingrediente, Integer> soloCondimentos = new HashMap<>();
+		for(Ingrediente ingrediente : ingredientes.keySet()){
 			if(ingrediente.getTipo().equals(TipoIngrediente.CONDIMENTO)){
-				soloCondimentos.add(ingrediente);
+				soloCondimentos.put(ingrediente, ingredientes.get(ingrediente));
 			}
 		}
 		return soloCondimentos;
-    }
-	
+	}	
 	/**
 	 * Devuelve el precio total del sanguchetto.<br>
 	 * @return
@@ -68,9 +79,24 @@ public class Sanguchetto {
 	public Double getPrecio(){
 		// Implementar
 		Double precio = 0.0;
-		for(Ingrediente ingrediente : ingredientes){
-			precio += ingrediente.getPrecio();
+		for(Ingrediente ingrediente : ingredientes.keySet()){
+			precio += ingrediente.getPrecio() * ingredientes.get(ingrediente);
 		}
 		return precio;
 	}
+	
+	/**
+	 * Elimina el ingrediente indicado del Sanguchetto, no importa cual sea la cantidad disponible del mismo.<br>
+	 * @param ingrediente
+	 * @return true en caso de exito, false si el ingrediente no existe en el Sanguchetto.<br>
+	 */
+	public Boolean eliminarIngrediente(Ingrediente ingrediente){
+		if(!this.ingredientes.containsKey(ingrediente)){
+			return false;
+		}
+		this.ingredientes.remove(ingrediente);
+		return true;
+	}
+	
+	
 }
