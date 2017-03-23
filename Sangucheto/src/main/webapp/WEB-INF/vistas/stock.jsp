@@ -59,6 +59,18 @@
 								  	</form:form>
 								  </ul>
 								</div>
+								<div class="btn-group">
+								  <button type="button" class="btn btn-danger dropdown-toggle"
+								          data-toggle="dropdown">
+								  Eliminar <span class="caret"></span>
+								  </button>
+									<ul class="dropdown-menu" role="menu">
+								  		<form:form action="IngredienteEliminado" modelAttribute="ingrediente" method="POST">
+								    		<li><strong>¿Eliminar Ingrediente?</strong> <form:input style="display: none;" path="nombre" value="${item.key.nombre}" readonly="true"/>
+								    		<button type="submit" class="btn btn-primary">Aceptar</button></li>
+								  		</form:form>
+								  	</ul>
+								</div>
 								</td>
 		       			</tr>
 		       			
@@ -86,22 +98,6 @@
 							</ul>
 						</div>
 						
-						<div class="btn-group">
-						  <button type="button" class="btn btn-danger dropdown-toggle"
-						          data-toggle="dropdown">
-						  Eliminar <span class="caret"></span>
-						  </button>
-							<ul class="dropdown-menu" role="menu">
-						  		<form:form action="IngredienteEliminado" modelAttribute="ingrediente" method="POST">
-						    		<li><strong>Ingrediente:</strong>
-								            <form:select path="nombre">
-								            <form:option value="0" label="Select" />
-								            <form:options items="${stock.keySet()}" itemValue="nombre" itemLabel="nombre" />
-								            </form:select>
-						    		<button type="submit" class="btn btn-primary">Aceptar</button></li>
-						  		</form:form>
-						  	</ul>
-						</div>
 			</div>
 		</c:forEach>
 	
