@@ -63,7 +63,9 @@ public class ControladorStock {
 	}
 	
 	@RequestMapping(value="IngredienteAgregado", method=RequestMethod.POST)
-	public ModelAndView agregarIngrediente(@ModelAttribute("ingrediente")Ingrediente ingrediente, @RequestParam(value="precio")Integer precio ){
+	public ModelAndView agregarIngrediente(@ModelAttribute("ingrediente")Ingrediente ingrediente, @RequestParam(value="precio", defaultValue="0")Integer precio ){
+		if(ingrediente.getNombre().equals(""))
+			ingrediente.setNombre("Unnamed");
 		ModelMap model = new ModelMap();
 		ingrediente.setPrecio(precio.doubleValue());
 		Stock.getInstance().agregarIngrediente(ingrediente);

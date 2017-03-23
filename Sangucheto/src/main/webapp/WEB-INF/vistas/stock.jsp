@@ -90,8 +90,8 @@
 							<ul class="dropdown-menu" role="menu">
 								<form:form  action="IngredienteAgregado" modelAttribute="ingrediente" method="POST">
 									<li><strong>Ingrediente:</strong> </li>
-										<form:input path="nombre" value="hola"/>
-										<input type="number" name="precio" value="0"/>
+										<form:input path="nombre" placeholder="Nombre" />
+										<input type="number" name="precio" placeholder="Precio"/>
 										<form:input path="tipo" style="display: none;" value="${tipo}"/>
 									<button type="submit" class="btn btn-primary">Aceptar</button></li>
 								</form:form>
