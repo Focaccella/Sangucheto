@@ -75,6 +75,9 @@ public class Stock {
 			return false;
 		}
 		Integer nuevaCantidad = this.stock.get(ingrediente) + cantidad;
+		if(nuevaCantidad<0){
+			nuevaCantidad=0;
+		}
 		this.stock.put(ingrediente, nuevaCantidad);
 		return true;
 	}

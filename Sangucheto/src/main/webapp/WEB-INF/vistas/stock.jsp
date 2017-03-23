@@ -41,73 +41,68 @@
 		      		<c:forEach items="${stock}" var="item">
 		      		<c:if test="${item.key.tipo.toString().equals(tipo)}">
 		        		<tr>
-				        		<td>${item.key.nombre}</td>
-				          		<td>$ ${item.key.precio}</td>
-				          		<td>${item.key.tipo}</td>
-				          		<td>${item.value}</td>
-				          		<td>
-				          		
-								<div class="btn-group">
-								  <button type="button" class="btn btn-primary dropdown-toggle"
-								          data-toggle="dropdown">
-								   	Agregar <span class="caret"></span>
-								  </button> 
-								  <ul class="dropdown-menu" role="menu">
-								    <li><strong>Cantidad:</strong> <input id="txtIngreso" name="cantidadIngresada" type="text" name="fname"><a href="#">Aceptar</a></li>
-								  </ul>
-								</div>
-								
+				        	<td>${item.key.nombre}</td>
+				          	<td>$ ${item.key.precio}</td>
+				          	<td>${item.key.tipo}</td>
+				          	<td>${item.value}</td>
+				          	<td>	
 				          		<div class="btn-group">
 								  <button type="button" class="btn btn-warning dropdown-toggle"
 								          data-toggle="dropdown">
 								   	Modificar <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><strong>Cantidad:</strong> <input id="txtIngreso" name="cantidadIngresada" type="text" name="fname"><a href="#">Aceptar</a></li>
+								    <form:form action="stockModificado" modelAttribute="ingrediente" method="POST">
+								    	<li><strong>Cantidad:</strong> <form:input style="display: none;" path="nombre" value="${item.key.nombre}" readonly="true"/>
+								    	<input type="number" name="cantidadAIngresar" value="0" />
+								    	<button type="submit" class="btn btn-primary">Aceptar</button></li>
+								  	</form:form>
 								  </ul>
 								</div>
-								 
-								<div class="btn-group">
-								  <button type="button" class="btn btn-danger dropdown-toggle"
-								          data-toggle="dropdown">
-								   	Eliminar <span class="caret"></span>
-								  </button>
-									<ul class="dropdown-menu" role="menu">
-								  		<li><strong>Cantidad:</strong> <input id="txtIngreso" name="cantidadIngresada" type="text" name="fname"><a href="#">Aceptar</a></li>
-								  	</ul>
-								</div>
-				          		
-				          		
-				          				
-				          		<!--<div class="form-group">
-										<button onclick="myFunction(<?=$item.key.nombre?>)" class="drop btn btn-success">Agregar</button>
-										<div id=item.key.nombre class="dropdown-content">
-    										<form:form class="drop" action="/stockRecibido" modelAttribute="ingrediente" method="POST">
-						    				<div class="margen">
-										  		<strong>Cantidad:</strong> <input id="txtIngreso" name="cantidadIngresada" type="text" name="fname">
-										  		<button type="submit" class="btn btn-primary">Aceptar</button>
-											</div>
-										</form:form>
-									</div>
-									<button class="btn btn-warning">Modificar</button>
-			
-									<button class="btn btn-danger">Eliminar</button>
-									
-								</div>-->
-								
 								</td>
 		       			</tr>
 		       			
 		       			
 		       		</c:if>
 		       		</c:forEach>
-		       			
 		      	</tbody>
 		    </table>
 		    	
 		 </div>
-
-		
+		 		<div style="margin: 8px;">
+		       			<div class="btn-group">
+							<button type="button" class="btn btn-primary dropdown-toggle"
+								          data-toggle="dropdown">
+							Agregar <span class="caret"></span>
+							</button> 
+							<ul class="dropdown-menu" role="menu">
+								<form:form  action="IngredienteAgregado" modelAttribute="ingrediente" method="POST">
+									<li><strong>Ingrediente:</strong> </li>
+										<form:input path="nombre" value="hola"/>
+										<input type="number" name="precio" value="0"/>
+										<form:input path="tipo" style="display: none;" value="${tipo}"/>
+									<button type="submit" class="btn btn-primary">Aceptar</button></li>
+								</form:form>
+							</ul>
+						</div>
+						
+						<div class="btn-group">
+						  <button type="button" class="btn btn-danger dropdown-toggle"
+						          data-toggle="dropdown">
+						  Eliminar <span class="caret"></span>
+						  </button>
+							<ul class="dropdown-menu" role="menu">
+						  		<form:form action="IngredienteEliminado" modelAttribute="ingrediente" method="POST">
+						    		<li><strong>Ingrediente:</strong>
+								            <form:select path="nombre">
+								            <form:option value="0" label="Select" />
+								            <form:options items="${stock.keySet()}" itemValue="nombre" itemLabel="nombre" />
+								            </form:select>
+						    		<button type="submit" class="btn btn-primary">Aceptar</button></li>
+						  		</form:form>
+						  	</ul>
+						</div>
+			</div>
 		</c:forEach>
 	
 	</div>
