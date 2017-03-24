@@ -70,7 +70,7 @@
 								  Eliminar <span class="caret"></span>
 								  </button>
 									<ul class="dropdown-menu" role="menu">
-								  		<form:form action="IngredienteEliminado" modelAttribute="ingrediente" method="POST">
+								  		<form:form action="ingredienteEliminado" modelAttribute="ingrediente" method="POST">
 								    		<li><strong>¿Eliminar Ingrediente?</strong> <form:input style="display: none;" path="nombre" value="${item.key.nombre}" readonly="true"/>
 								    		<button type="submit" class="btn btn-primary">Aceptar</button></li>
 								  		</form:form>
@@ -90,7 +90,7 @@
 							Agregar nuevo ${tipo.toLowerCase()} <span class="caret"></span>
 							</button> 
 							<ul class="dropdown-menu" role="menu">
-								<form:form  action="IngredienteAgregado" modelAttribute="ingrediente" method="POST">
+								<form:form  action="ingredienteAgregado" modelAttribute="ingrediente" method="POST">
 									<li><strong>Ingrediente:</strong> </li>
 										<form:input path="nombre" placeholder="Nombre" />
 										<input type="number" name="precio" placeholder="Precio"/>

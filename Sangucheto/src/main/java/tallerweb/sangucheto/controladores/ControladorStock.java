@@ -35,12 +35,12 @@ public class ControladorStock {
 		return irAStock(null, null);
 	}
 	
-	@RequestMapping(path="/IngredienteEliminado")
+	@RequestMapping(path="/ingredienteEliminado")
 	public ModelAndView auxiliarEliminacion(){
 		return irAStock(null, null);
 	}
 	
-	@RequestMapping(path="/IngredienteAgregado")
+	@RequestMapping(path="/ingredienteAgregado")
 	public ModelAndView auxiliarAgregacion(){
 		return irAStock(null, null);
 	}
@@ -54,23 +54,23 @@ public class ControladorStock {
 		// Se agrega o resta solo si la cantidad es distinta de 0
 		if(cantidad != 0){
 			Stock.getInstance().agregarStock(ingrediente, cantidad);
-			mensaje = "El ingrediente se ha actualizado correctamente";
+			mensaje = "<strong>Ingrediente Actualizado.</strong> El ingrediente se ha actualizado correctamente.";
 		}else{
-			mensaje = "La cantidad debe ser distinta de 0";
+			mensaje = "<strong>Cantidad Inválida.</strong> La cantidad debe ser distinta de 0.";
 			tipoMensaje = "warning";
 		}
 		return irAStock(mensaje, tipoMensaje);
 	}
 	
-	@RequestMapping(value="IngredienteEliminado" , method=RequestMethod.POST)
+	@RequestMapping(value="ingredienteEliminado" , method=RequestMethod.POST)
 	public ModelAndView eliminarIngrediente(@ModelAttribute("ingrediente")Ingrediente ingrediente ){
 		// Elimino el ingrediente, en caso de ser un ingrediente del Sangucheto también lo elimino del mismo
 		Stock.getInstance().eliminarIngrediente(ingrediente);
 		Sanguchetto.getInstance().eliminarIngrediente(ingrediente);
-		return irAStock("El ingrediente se ha eliminado correctamente", "success");
+		return irAStock("<strong>Ingrediente Eliminado.</strong> El ingrediente " + ingrediente.getNombre() + " se ha eliminado correctamente.", "success");
 	}
 	
-	@RequestMapping(value="IngredienteAgregado", method=RequestMethod.POST)
+	@RequestMapping(value="ingredienteAgregado", method=RequestMethod.POST)
 	public ModelAndView agregarIngrediente(@ModelAttribute("ingrediente")Ingrediente ingrediente, 
 			@RequestParam(value="precio", defaultValue="0")Integer precio ){
 		// Se crea el mensaje
@@ -78,7 +78,7 @@ public class ControladorStock {
 		String tipoMensaje = "success";
 		// Si el ingrediente no tiene nombre no se agrega
 		if(ingrediente.getNombre().equals("")){
-			mensaje = "<strong>Nombre Inválido.</strong> Debe ingresar un nombre para el ingrediente nuevo";
+			mensaje = "<strong>Nombre Inválido.</strong> Debe ingresar un nombre para el ingrediente nuevo.";
 			tipoMensaje = "danger";
 			return irAStock(mensaje, tipoMensaje);
 		}
@@ -86,9 +86,9 @@ public class ControladorStock {
 		ingrediente.setPrecio(precio.doubleValue());
 		// Si se puede agregar indica un mensaje de exito, caso contrario que ya existia
 		if(Stock.getInstance().agregarIngrediente(ingrediente)){
-			mensaje = "Se ha añadido correctamente el ingrediente " + ingrediente.getNombre();
+			mensaje = "<strong>Nuevo Ingrediente.</strong> Se ha añadido correctamente el ingrediente " + ingrediente.getNombre() + ".";
 		}else{
-			mensaje = "El nombre especificado para el ingrediente ya existe, por favor elija otro";
+			mensaje = "<strong>Nombre Inválido.</strong> El nombre especificado para el ingrediente ya existe, por favor elija otro.";
 			tipoMensaje = "warning";
 		}
 		return irAStock(mensaje, tipoMensaje);

@@ -37,7 +37,7 @@
 					</select>					
 					</div>		
 					<div class="col-md-4 form-group">
-	      					<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
+	      				<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
 	      			</div>					
 					<div class="col-md-2 form-group">					
 						<button class="btn btn-primary">Agregar</button>					
