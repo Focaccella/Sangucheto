@@ -15,7 +15,7 @@
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="cremita-fondo">
+<body >
 	<br>
 	<div class="container">
 		<ul class="nav nav-pills" role="tablist">
@@ -24,14 +24,14 @@
 	        <li role="presentation" class="active"><a href="stock">Administrar Stock</a></li>
      	</ul>
 
-     	<div class="col-md-12 page-header text-center margen-abajo">
+     	<div class="col-md-12 text-center margen-abajo">
      		<h1 class="indie-font muy-grande color-sangucheto">Stock</h1>	
      	</div>
 	
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
 		
 			<div class="page-header">			
-				<h1>Lista de ${tipo.toLowerCase()}s</h1>			
+				<h2 class="dosis-font color-base">Lista de ${tipo.toLowerCase()}s</h2>			
 			</div>	
 		
 		    <table class="table">

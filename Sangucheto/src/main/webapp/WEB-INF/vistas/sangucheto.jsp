@@ -16,7 +16,7 @@
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="cremita-fondo">
+<body>
 
 	<div class="container">	
 		<br>
@@ -26,7 +26,7 @@
 	        <li role="presentation"><a href="stock">Administrar Stock</a></li>
      	</ul>
      	<div class="col-md-12  text-center margen-abajo">
-     		<h1 class="indie-font muy-grande color-sangucheto">Sanguchetto <img style="width:2cm;" src="images/comprar.png"/> </h1>	
+     		<h1 class="indie-font muy-grande color-sangucheto">Sangucheto <img style="width:2cm;" src="images/comprar.png"/> </h1>	
      	</div>
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
 			<div class="page-header">			
@@ -84,7 +84,7 @@
 								  				<form:input type="hidden" path="nombre" value="${item.key.nombre}" readonly="true" class="form-control"/>
 								  			</div>
 								    		<div class="form-group">
-								    			<label class="label-control"><strong>ï¿½Eliminar Ingrediente?</strong></label>
+								    			<label class="label-control"><strong>¿Eliminar Ingrediente?</strong></label>
 								    		</div>
 								    		<div class="form-group">
 								    			<button type="submit" class="btn btn-primary form-control">Aceptar</button>
