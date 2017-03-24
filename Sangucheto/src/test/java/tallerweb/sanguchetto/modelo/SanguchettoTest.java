@@ -1,6 +1,13 @@
 package tallerweb.sanguchetto.modelo;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
+
+import tallerweb.sangucheto.modelo.Ingrediente;
+import tallerweb.sangucheto.modelo.Sanguchetto;
+import tallerweb.sangucheto.modelo.Stock;
+import tallerweb.sangucheto.modelo.TipoIngrediente;
 
 public class SanguchettoTest {
 
@@ -28,4 +35,5 @@ public class SanguchettoTest {
     public void testGetPrecio() {
         // Implementar
     }
+
 }

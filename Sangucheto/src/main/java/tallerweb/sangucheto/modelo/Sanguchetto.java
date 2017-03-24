@@ -31,8 +31,10 @@ public class Sanguchetto {
 	 * @param ingrediente
 	 */
 	public void agregarIngrediente(Ingrediente ingrediente, Integer cantidad){
-		// Implementar
-		ingredientes.put(ingrediente, cantidad);
+		if(existeIngrediente(ingrediente))
+			ingredientes.put(ingrediente, ingredientes.get(ingrediente) + cantidad);
+		else
+			ingredientes.put(ingrediente, cantidad);
 	}
 	
 	/**
@@ -96,6 +98,15 @@ public class Sanguchetto {
 		}
 		this.ingredientes.remove(ingrediente);
 		return true;
+	}
+	
+	/**
+	 * Indica si el ingrediente indicado fue incluido en el Sangucheto.<br>
+	 * @param ingrediente
+	 * @return
+	 */
+	public Boolean existeIngrediente(Ingrediente ingrediente){
+		return ingredientes.containsKey(ingrediente);
 	}
 	
 	

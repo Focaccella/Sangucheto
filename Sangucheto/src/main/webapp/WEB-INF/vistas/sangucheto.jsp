@@ -109,7 +109,7 @@
 	      	</tbody>
 	    </table>
 	    
-	    <h1>$ ${sangucheto.getPrecio()}</h1>
+	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h1>
 	
 	</div>
 	
