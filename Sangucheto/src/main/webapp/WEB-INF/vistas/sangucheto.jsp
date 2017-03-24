@@ -26,8 +26,8 @@
 				<h1>Agregar ${tipo.toLowerCase()}s</h1>			
 			</div>				
 			<div class="container form-group">	
-				<form action="agregarIngrediente" method="POST">				
-					<div class="col-md-6">								
+				<form action="agregarIngrediente" method="POST" class="form">				
+					<div class="col-md-6 form-group">								
 					<select class="form-control" name="ingredienteAgregado">				
 						<c:forEach items="${stock}" var="item">						
 							<c:if test="${item.key.tipo.toString().equals(tipo)}">						
@@ -36,10 +36,10 @@
 						</c:forEach>					
 					</select>					
 					</div>		
-					<div class="col-md-4">
+					<div class="col-md-4 form-group">
 	      					<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
 	      			</div>					
-					<div class="col-md-2">					
+					<div class="col-md-2 form-group">					
 						<button class="btn btn-primary">Agregar</button>					
 					</div>				
 				</form>				
@@ -51,11 +51,11 @@
 	    <table class="table table-striped">	    
 			<thead>
 	        	<tr>
-	        		<th>Cantidad</th>
-	          		<th>Nombre</th>
-	          		<th>P. Unitario</th>
-	          		<th>P. Total</th>
-	          		<th>Accion</th>
+	        		<th class="col-sm-2">Cantidad</th>
+	          		<th class="col-sm-3">Nombre</th>
+	          		<th class="col-sm-3">P. Unitario</th>
+	          		<th class="col-sm-3">P. Total</th>
+	          		<th class="col-sm-1">Accion</th>
 	        	</tr>
 	      	</thead>
 	      	<tbody>	      		

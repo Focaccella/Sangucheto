@@ -38,7 +38,6 @@
 		        	<tr>
 		          		<th>Nombre</th>
 		          		<th>Precio</th>
-		          		<th>Tipo</th>
 		          		<th>Cantidad</th>
 		          		<th>Accion</th>
 		        	</tr>
@@ -48,15 +47,14 @@
 		      		<c:forEach items="${stock}" var="item">
 		      		<c:if test="${item.key.tipo.toString().equals(tipo)}">
 		        		<tr>
-				        	<td>${item.key.nombre}</td>
-				          	<td>$ ${item.key.precio}</td>
-				          	<td>${item.key.tipo}</td>
-				          	<td>${item.value}</td>
-				          	<td>	
+				        	<td class="col-sm-3">${item.key.nombre}</td>
+				          	<td class="col-sm-3">$ ${item.key.precio}</td>
+				          	<td class="col-sm-3">${item.value}</td>
+				          	<td class="col-sm-3">	
 				          		<div class="btn-group">
 								  <button type="button" class="btn btn-warning dropdown-toggle"
 								          data-toggle="dropdown">
-								   	Modificar <span class="caret"></span>
+								   	Agregar <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
 								    <form:form action="stockModificado" modelAttribute="ingrediente" method="POST">
@@ -79,9 +77,7 @@
 								  	</ul>
 								</div>
 								</td>
-		       			</tr>
-		       			
-		       			
+		       			</tr> 
 		       		</c:if>
 		       		</c:forEach>
 		      	</tbody>
@@ -91,7 +87,7 @@
 		       			<div class="btn-group">
 							<button type="button" class="btn btn-primary dropdown-toggle"
 								          data-toggle="dropdown">
-							Agregar <span class="caret"></span>
+							Agregar nuevo ${tipo.toLowerCase()} <span class="caret"></span>
 							</button> 
 							<ul class="dropdown-menu" role="menu">
 								<form:form  action="IngredienteAgregado" modelAttribute="ingrediente" method="POST">
