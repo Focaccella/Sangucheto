@@ -26,15 +26,17 @@
 			
 			<div class="container form-group">	
 				
+				<form action="agregarIngrediente" method="POST">
+				
 				<div class="col-md-6">
 								
-				<select class="form-control">
+				<select class="form-control" name="ingredienteAgregado">
 				
 					<c:forEach items="${stock}" var="item">
 						
 						<c:if test="${item.key.tipo.toString().equals(tipo)}">
 						
-							<option>${item.key.nombre}</option>
+							<option value="${item.key.nombre}">${item.key.nombre}</option>
 						
 						</c:if>
 						
@@ -46,7 +48,7 @@
 				
 				<div class="col-md-4">
 				
-      					<input type="text" class="form-control" placeholder="Cantidad">
+      					<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">
       					
   				</div>
 				
@@ -55,6 +57,8 @@
 					<button class="btn btn-primary">Agregar</button>
 				
 				</div>
+				
+				</form>
 				
 			</div>
 		

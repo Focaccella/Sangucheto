@@ -28,20 +28,17 @@ public class ControladorStock {
 	
 	@RequestMapping(path="/stockModificado")
 	public ModelAndView auxiliarModificacion(){
-		ModelMap mm = new ModelMap("stock", Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock", mm);
+		return irAStock();
 	}
 	
 	@RequestMapping(path="/IngredienteEliminado")
 	public ModelAndView auxiliarEliminacion(){
-		ModelMap mm = new ModelMap("stock", Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock", mm);
+		return irAStock();
 	}
 	
 	@RequestMapping(path="/IngredienteAgregado")
 	public ModelAndView auxiliarAgregacion(){
-		ModelMap mm = new ModelMap("stock", Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock", mm);
+		return irAStock();
 	}
 	
 	@RequestMapping(value="stockModificado", method=RequestMethod.POST)

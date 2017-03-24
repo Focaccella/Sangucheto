@@ -130,4 +130,17 @@ public class Stock {
 		this.stock.remove(ingrediente);
 		return true;
 	}
+	
+	/**
+	 * Devuelve un ingrediente a partir de su nombre.<br>
+	 * @param nombre del ingrediente
+	 * @return ingrediente en caso de exito, null si el ingrediente no existe en el stock.<br>
+	 */
+	public Ingrediente obtenerIngrediente(String ingrediente){
+		for(Ingrediente ing : stock.keySet()){
+			if(ing.getNombre().equals(ingrediente))
+				return ing;
+		}
+		return null;
+	}
 }
