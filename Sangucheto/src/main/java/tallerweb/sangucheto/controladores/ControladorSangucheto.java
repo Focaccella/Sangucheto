@@ -31,6 +31,16 @@ public class ControladorSangucheto {
 		return new ModelAndView("sangucheto", mm);
 	}
 	
+	@RequestMapping(path="/eliminarIngrediente")
+	public ModelAndView auxiliarModificacion(){
+		return irASangucheto(null, null);
+	}
+	
+	@RequestMapping(path="/agregarIngrediente")
+	public ModelAndView auxiliarEliminacion(){
+		return irASangucheto(null, null);
+	}
+	
 	@RequestMapping(value="eliminarIngrediente", method=RequestMethod.POST)
 	public ModelAndView elminarIngrediente(@ModelAttribute("ingrediente") Ingrediente ingrediente){
 		// Obtengo la cantidad del ingrediente que hay en el sangucheto
@@ -40,8 +50,8 @@ public class ControladorSangucheto {
 		// Elimino el ingrediente del sangucheto
 		Sanguchetto.getInstance().eliminarIngrediente(ingrediente);
 		// Muestro un mensaje
-		String mensaje = "Se ha eliminado el ingrediente " + ingrediente.getNombre() + "<br><br>";
-		mensaje += "Se ha restaurado el stock en " + cantidad + " unidades";
+		String mensaje = "<strong>Ingrediente Eliminado.</strong> Se ha eliminado el ingrediente " + ingrediente.getNombre();
+		mensaje += ". Se ha restaurado el stock en " + cantidad + " unidades";
 		return irASangucheto(mensaje, "success");
 	}
 	
@@ -59,10 +69,10 @@ public class ControladorSangucheto {
 		if(Stock.getInstance().obtenerStockDisponible(ing) >= cantidad){
 			Sanguchetto.getInstance().agregarIngrediente(ing, cantidad);
 			Stock.getInstance().comprarIngrediente(ing, cantidad);
-			mensaje = "Se agrego una cantidad de " + cantidad + " del ingrediente " + nombreIngrediente;
+			mensaje = "<strong>Ingrediente Añadido.</strong> Se agrego una cantidad de " + cantidad + " del ingrediente " + nombreIngrediente;
 			
 		}else{
-			mensaje = "No hay suficiente stock del ingrediente " + nombreIngrediente;
+			mensaje = "<strong>Stock Insuficiente.</strong> No hay suficiente stock del ingrediente " + nombreIngrediente;
 			tipoMensaje = "danger";
 		}
 		return irASangucheto(mensaje, tipoMensaje);

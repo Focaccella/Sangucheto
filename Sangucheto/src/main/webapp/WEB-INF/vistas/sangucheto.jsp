@@ -44,7 +44,7 @@
 					</select>					
 					</div>		
 					<div class="col-md-4 form-group">
-	      					<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
+	      				<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
 	      			</div>					
 					<div class="col-md-2 form-group">					
 						<button class="btn btn-primary">Agregar</button>					
@@ -78,9 +78,19 @@
 							  Eliminar <span class="caret"></span>
 							  </button>
 								<ul class="dropdown-menu" role="menu">
-							  		<form:form action="eliminarIngrediente" modelAttribute="ingrediente" method="POST">
-							    		<button type="submit" class="btn btn-primary">Aceptar</button></li>
-							  		</form:form>
+									<div class="col-lg-12">
+								  		<form:form action="eliminarIngrediente" modelAttribute="ingrediente" method="POST">
+								  			<div class="form-group">
+								  				<form:input type="hidden" path="nombre" value="${item.key.nombre}" readonly="true" class="form-control"/>
+								  			</div>
+								    		<div class="form-group">
+								    			<label class="label-control"><strong>�Eliminar Ingrediente?</strong></label>
+								    		</div>
+								    		<div class="form-group">
+								    			<button type="submit" class="btn btn-primary form-control">Aceptar</button>
+								    		</div>
+								  		</form:form>
+								  	</div>
 							  	</ul>
 							</div>
 						</td>
