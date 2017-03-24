@@ -19,13 +19,20 @@
 
 	<div class="container">
 	
+		<ul class="nav nav-pills" role="tablist">
+	        <li role="presentation"><a href=".">Home</a></li>
+	        <li role="presentation"><a href="sangucheto">Arma tu Sangucheto</a></li>
+	        <li role="presentation" class="active"><a href="stock">Administrar Stock</a></li>
+     	</ul>
+
+	
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
 		
-		<div class="panel panel-default">
+			<div class="page-header">			
+				<h1>Lista de ${tipo.toLowerCase()}s</h1>			
+			</div>	
 		
-			<div class="panel-heading">LISTA DE ${tipo}S</div>
-		
-		    <table class="table">
+		    <table class="table table-striped">
 		    
 				<thead>
 		        	<tr>
@@ -80,7 +87,6 @@
 		      	</tbody>
 		    </table>
 		    	
-		 </div>
 		 		<div style="margin: 8px;">
 		       			<div class="btn-group">
 							<button type="button" class="btn btn-primary dropdown-toggle"
@@ -99,14 +105,7 @@
 						</div>
 						
 			</div>
-		</c:forEach>
-		
-		<form action=".">
-			<div class="btn-group">
-				<button type="submit" class="btn btn-info">Volver al Menú Principal</button></li>
-			</div>
-		</form>
-		
+		</c:forEach>		
 	</div>
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

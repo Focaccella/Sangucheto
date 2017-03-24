@@ -22,6 +22,7 @@ public class ControladorSangucheto {
 
 	@RequestMapping(path="/sangucheto")
 	public ModelAndView irASangucheto(String mensaje){
+		// Envia el stock, el sangucheto y un mensaje pasado por parametro a la vista
 		ModelMap mm = new ModelMap();
 		mm.put("stock", Stock.getInstance().obtenerStock());
 		mm.put("sangucheto", Sanguchetto.getInstance());
@@ -31,10 +32,13 @@ public class ControladorSangucheto {
 	
 	@RequestMapping(value="eliminarIngrediente", method=RequestMethod.POST)
 	public ModelAndView elminarIngrediente(@ModelAttribute("ingrediente") Ingrediente ingrediente){
-		// Elimino el ingrediente seleccionado y restauro el stock
+		// Obtengo la cantidad del ingrediente que hay en el sangucheto
 		Integer cantidad =  Sanguchetto.getInstance().obtenerCantidadDeIngrediente(ingrediente);
+		// Restauro el stock de ese ingrediente
 		Stock.getInstance().agregarStock(ingrediente, cantidad);
+		// Elimino el ingrediente del sangucheto
 		Sanguchetto.getInstance().eliminarIngrediente(ingrediente);
+		// Muestro un mensaje
 		String mensaje = "Se ha eliminado el ingrediente " + ingrediente.getNombre() + "<br><br>";
 		mensaje += "Se ha restaurado el stock en " + cantidad + " unidades";
 		return irASangucheto(mensaje);

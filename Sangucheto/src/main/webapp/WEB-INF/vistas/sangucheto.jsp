@@ -15,6 +15,12 @@
 <body>
 
 	<div class="container">	
+		<br>
+	    <ul class="nav nav-pills" role="tablist">
+	        <li role="presentation"><a href=".">Home</a></li>
+	        <li role="presentation" class="active"><a href="sangucheto">Arma tu Sangucheto</a></li>
+	        <li role="presentation"><a href="stock">Administrar Stock</a></li>
+     	</ul>
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
 			<div class="page-header">			
 				<h1>Agregar ${tipo.toLowerCase()}s</h1>			
@@ -42,7 +48,7 @@
 		<div class="page-header">			
 			<h1>Mi Sangucheto</h1>			
 		</div>		
-	    <table class="table">	    
+	    <table class="table table-striped">	    
 			<thead>
 	        	<tr>
 	        		<th>Cantidad</th>
@@ -78,12 +84,11 @@
 	      	</tbody>
 	    </table>	    
 	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h2>	
-	    <h2 align="center"><small>${mensaje}</small></h2>
-	    <form action=".">
-			<div class="btn-group">
-				<button type="submit" class="btn btn-info">Volver al Menú Principal</button></li>
-			</div>
-		</form>
+	    <c:if test="${mensaje != null}">
+		    <div class="alert alert-success" role="alert">
+	       		${mensaje}
+	      	</div>
+      	</c:if>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
