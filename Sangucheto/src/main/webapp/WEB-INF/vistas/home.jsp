@@ -6,16 +6,19 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 		<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:500|Open+Sans+Condensed:300" rel="stylesheet">
 		<link href="css/estilos.css" rel="stylesheet"/>
+		<link href="css/animate.css" rel="stylesheet"/>
+		
 		<title>Inicio</title>
 	</head>
-	<body class="sans cremita">
+	<body class="sans cremita-fondo" >
+
 		<div class="col-md-8 text-center center-block float-none">
 			<div class="col-md-12 col-xs-12 espacio-arriba">
-				<img class="img-responsive display-en-linea col-xs-12" src="images/sanguche-inicio.png"/>
-				<h1 class="muy-grande col-md-12 col-xs-12">Sangucheto</h1>
+				<img class="img-responsive display-en-linea col-xs-12 animated fadeIn" style="animation-delay: 0.5s;" src="images/sanguche-inicio.png"/>
+				<h1 class="muy-grande col-md-12 col-xs-12 animated fadeIn" style="animation-delay: 1.5s;" >Sangucheto</h1>
 				<ul class=" lista-en-linea sacar-puntos grande separar">
-					<li class="display-en-linea"><a href="./sangucheto">Armar Sangucheto</a></li>
-					<li class="display-en-linea"><a href="./stock">Administrar Stock</a></li>
+					<li class="display-en-linea"><a href="./sangucheto" class="color-bordo-claro animated fadeIn" style="animation-delay: 2s;" >Armar Sangucheto</a></li>
+					<li class="display-en-linea"><a href="./stock" class="color-bordo-claro animated fadeIn" style="animation-delay: 2s;" >Administrar Stock</a></li>
 				</ul>
 			</div>
 		</div>

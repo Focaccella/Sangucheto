@@ -1,19 +1,9 @@
-body{
-	background-color: #fefbe5;
-}
-
-
-/*esto es para ubicar los div graficamente, despues lo borro*/
-
-
 .sans{
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
-}
-
-.colorRojo{
-	background-color: red;
+.cremita-fondo{
+	background-color: #ffffe6;
 }
 
 .float-none { 
@@ -28,6 +18,10 @@ body{
 	display:inline-block;
 	padding: 0px;
 	margin: 0px;
+}
+
+.color-bordo-claro{
+	color: #ff3333;
 }
 
 .sacar-puntos li{
@@ -50,4 +44,30 @@ body{
 .separar li{
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.rojo-fondo{
+	background-color: #ff0000;
+}
+
+.dosis-font{
+	font-family: 'Dosis', sans-serif;
+}
+
+.indie-font{
+	font-family: 'Indie Flower', cursive;
+}
+
+.margen-abajo{
+	margin-bottom: 10px;
+}
+
+.color-sangucheto{
+	color: #e63900;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color:black;
+    background-color:#fcd900;
+    }
 }
