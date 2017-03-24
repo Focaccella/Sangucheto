@@ -10,9 +10,7 @@ public class Sanguchetto {
 	private static Sanguchetto instance = new Sanguchetto();
 	private Map<Ingrediente, Integer> ingredientes = new HashMap<>();
 	
-	private Sanguchetto(){
-		agregarIngrediente(new Ingrediente("Mayonesa", 20.0, TipoIngrediente.INGREDIENTE),20);
-	}
+	private Sanguchetto(){}
 	
 	public static Sanguchetto getInstance(){
 		return instance;

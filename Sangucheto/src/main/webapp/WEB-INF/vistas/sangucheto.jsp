@@ -31,11 +31,11 @@
 					<select class="form-control" name="ingredienteAgregado">				
 						<c:forEach items="${stock}" var="item">						
 							<c:if test="${item.key.tipo.toString().equals(tipo)}">						
-								<option value="${item.key.nombre}">${item.key.nombre}</option>
+								<option value="${item.key.nombre}">${item.key.nombre} - $ ${item.key.precio}</option>
 							</c:if>						
 						</c:forEach>					
 					</select>					
-					</div>					
+					</div>		
 					<div class="col-md-4">
 	      					<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
 	      			</div>					
