@@ -101,7 +101,13 @@
 						</div>
 						
 			</div>
-		</c:forEach>		
+		</c:forEach>
+		<br>
+		<c:if test="${mensaje != null}">
+		    <div class="alert alert-${tipoMensaje}" role="alert">
+	       		${mensaje}
+	      	</div>
+      	</c:if>		
 	</div>
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

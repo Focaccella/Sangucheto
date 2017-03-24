@@ -85,7 +85,7 @@
 	    </table>	    
 	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h2>	
 	    <c:if test="${mensaje != null}">
-		    <div class="alert alert-success" role="alert">
+		    <div class="alert alert-${tipoMensaje}" role="alert">
 	       		${mensaje}
 	      	</div>
       	</c:if>

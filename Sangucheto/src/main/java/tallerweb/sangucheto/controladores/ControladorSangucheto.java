@@ -21,12 +21,13 @@ public class ControladorSangucheto {
 	 }
 
 	@RequestMapping(path="/sangucheto")
-	public ModelAndView irASangucheto(String mensaje){
+	public ModelAndView irASangucheto(String mensaje, String tipoMensaje){
 		// Envia el stock, el sangucheto y un mensaje pasado por parametro a la vista
 		ModelMap mm = new ModelMap();
 		mm.put("stock", Stock.getInstance().obtenerStock());
 		mm.put("sangucheto", Sanguchetto.getInstance());
 		mm.put("mensaje", mensaje);
+		mm.put("tipoMensaje", tipoMensaje);
 		return new ModelAndView("sangucheto", mm);
 	}
 	
@@ -41,7 +42,7 @@ public class ControladorSangucheto {
 		// Muestro un mensaje
 		String mensaje = "Se ha eliminado el ingrediente " + ingrediente.getNombre() + "<br><br>";
 		mensaje += "Se ha restaurado el stock en " + cantidad + " unidades";
-		return irASangucheto(mensaje);
+		return irASangucheto(mensaje, "success");
 	}
 	
 	@RequestMapping(value="agregarIngrediente", method=RequestMethod.POST)
@@ -52,16 +53,19 @@ public class ControladorSangucheto {
 			cantidad = 1;
 		// Se crea el mensaje y se obtiene el ingrediente del stock
 		String mensaje = "";
+		String tipoMensaje = "success";
 		Ingrediente ing = Stock.getInstance().obtenerIngrediente(nombreIngrediente);
 		// Se comprueba que haya stock suficiente, en caso afirmativo se resta del stock, caso contrario se muestra mensaje de error
 		if(Stock.getInstance().obtenerStockDisponible(ing) >= cantidad){
 			Sanguchetto.getInstance().agregarIngrediente(ing, cantidad);
 			Stock.getInstance().comprarIngrediente(ing, cantidad);
 			mensaje = "Se agrego una cantidad de " + cantidad + " del ingrediente " + nombreIngrediente;
+			
 		}else{
 			mensaje = "No hay suficiente stock del ingrediente " + nombreIngrediente;
+			tipoMensaje = "danger";
 		}
-		return irASangucheto(mensaje);
+		return irASangucheto(mensaje, tipoMensaje);
 	}
 }
 
