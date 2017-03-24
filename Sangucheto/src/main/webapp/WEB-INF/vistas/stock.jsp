@@ -10,6 +10,7 @@
 <title>Stock</title>
 
 <link href="css/estilos.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Indie+Flower|Nova+Oval" rel="stylesheet">
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +27,9 @@
 	        <li role="presentation" class="active"><a href="stock">Administrar Stock</a></li>
      	</ul>
 
+     	<div class="col-md-12 page-header text-center margen-abajo">
+     		<h1 class="indie-font muy-grande color-sangucheto">Stock</h1>	
+     	</div>
 	
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
 		
@@ -72,7 +76,7 @@
 								  </button>
 									<ul class="dropdown-menu" role="menu">
 								  		<form:form action="IngredienteEliminado" modelAttribute="ingrediente" method="POST">
-								    		<li><strong>¿Eliminar Ingrediente?</strong> <form:input style="display: none;" path="nombre" value="${item.key.nombre}" readonly="true"/>
+								    		<li><strong>ï¿½Eliminar Ingrediente?</strong> <form:input style="display: none;" path="nombre" value="${item.key.nombre}" readonly="true"/>
 								    		<button type="submit" class="btn btn-primary">Aceptar</button></li>
 								  		</form:form>
 								  	</ul>

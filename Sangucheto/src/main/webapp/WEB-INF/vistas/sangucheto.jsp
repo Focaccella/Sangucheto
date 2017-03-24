@@ -30,7 +30,7 @@
      	</div>
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
 			<div class="page-header">			
-				<h2 class="dosis-font">Agregar ${tipo.toLowerCase()}s</h2>			
+				<h2 class="dosis-font color-base">Agregar ${tipo.toLowerCase()}s</h2>			
 			</div>				
 			<div class="container form-group">	
 				<form action="agregarIngrediente" method="POST" class="form">				
@@ -53,7 +53,7 @@
 			</div>		
 		</c:forEach>		
 		<div class="page-header">			
-			<h1 class="dosis-font">Mi Sangucheto</h1>			
+			<h1 class="dosis-font color-base">Mi Sangucheto</h1>			
 		</div>		
 	    <table class="table table-striped">	    
 			<thead>
@@ -79,7 +79,6 @@
 							  </button>
 								<ul class="dropdown-menu" role="menu">
 							  		<form:form action="eliminarIngrediente" modelAttribute="ingrediente" method="POST">
-							    		<li><strong>¿Eliminar Ingrediente?</strong> <form:input style="display: none;" path="nombre" value="${item.key.nombre}" readonly="true"/>
 							    		<button type="submit" class="btn btn-primary">Aceptar</button></li>
 							  		</form:form>
 							  	</ul>
