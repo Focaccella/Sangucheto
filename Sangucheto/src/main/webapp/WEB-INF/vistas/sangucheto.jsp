@@ -14,64 +14,35 @@
 </head>
 <body>
 
-	<div class="container">
-	
+	<div class="container">	
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
-	
-			<div class="page-header">
-			
-				<h1>Agregar ${tipo.toLowerCase()}s</h1>
-			
-			</div>	
-			
+			<div class="page-header">			
+				<h1>Agregar ${tipo.toLowerCase()}s</h1>			
+			</div>				
 			<div class="container form-group">	
-				
-				<form action="agregarIngrediente" method="POST">
-				
-				<div class="col-md-6">
-								
-				<select class="form-control" name="ingredienteAgregado">
-				
-					<c:forEach items="${stock}" var="item">
-						
-						<c:if test="${item.key.tipo.toString().equals(tipo)}">
-						
-							<option value="${item.key.nombre}">${item.key.nombre}</option>
-						
-						</c:if>
-						
-					</c:forEach>
-					
-				</select>
-				
-				</div>
-				
-				<div class="col-md-4">
-				
-      					<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">
-      					
-  				</div>
-				
-				<div class="col-md-2">
-				
-					<button class="btn btn-primary">Agregar</button>
-				
-				</div>
-				
-				</form>
-				
-			</div>
-		
-		</c:forEach>
-		
-		<div class="page-header">
-			
-			<h1>Mi Sangucheto</h1>
-			
-		</div>
-		
-	    <table class="table">
-	    
+				<form action="agregarIngrediente" method="POST">				
+					<div class="col-md-6">								
+					<select class="form-control" name="ingredienteAgregado">				
+						<c:forEach items="${stock}" var="item">						
+							<c:if test="${item.key.tipo.toString().equals(tipo)}">						
+								<option value="${item.key.nombre}">${item.key.nombre}</option>
+							</c:if>						
+						</c:forEach>					
+					</select>					
+					</div>					
+					<div class="col-md-4">
+	      					<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
+	      			</div>					
+					<div class="col-md-2">					
+						<button class="btn btn-primary">Agregar</button>					
+					</div>				
+				</form>				
+			</div>		
+		</c:forEach>		
+		<div class="page-header">			
+			<h1>Mi Sangucheto</h1>			
+		</div>		
+	    <table class="table">	    
 			<thead>
 	        	<tr>
 	        		<th>Cantidad</th>
@@ -81,15 +52,13 @@
 	          		<th>Accion</th>
 	        	</tr>
 	      	</thead>
-	      	<tbody>
-	      		
+	      	<tbody>	      		
 	      		<c:forEach items="${sangucheto.ingredientes}" var="item">
 	        		<tr>
 	        			<td>${item.value}</td>
 			        	<td>${item.key.nombre}</td>
 			          	<td>$ ${item.key.precio}</td>
-			          	<td>$ ${item.key.precio * item.value}</td>
-			          	
+			          	<td>$ ${item.key.precio * item.value}</td>			          	
 			          	<td>	
 							<div class="btn-group">
 							  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
@@ -107,12 +76,15 @@
 	       			
 	       		</c:forEach>
 	      	</tbody>
-	    </table>
-	    
-	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h1>
-	
+	    </table>	    
+	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h2>	
+	    <h2 align="center"><small>${mensaje}</small></h2>
+	    <form action=".">
+			<div class="btn-group">
+				<button type="submit" class="btn btn-info">Volver al Menú Principal</button></li>
+			</div>
+		</form>
 	</div>
-	
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>

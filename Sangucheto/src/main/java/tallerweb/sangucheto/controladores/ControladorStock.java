@@ -43,12 +43,10 @@ public class ControladorStock {
 	
 	@RequestMapping(value="stockModificado", method=RequestMethod.POST)
 	public ModelAndView modificarStock(@ModelAttribute("ingrediente")Ingrediente ingrediente, @RequestParam(value="cantidadAIngresar") Integer cantidad ){
-		ModelMap model = new ModelMap();
-		if(cantidad!=0){
+		if(cantidad != 0)
 			Stock.getInstance().agregarStock(ingrediente, cantidad);
-		}
-		model.put("stock",Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock" , model);
+		ModelMap model = new ModelMap("stock", Stock.getInstance().obtenerStock());
+		return new ModelAndView("stock", model);
 	}
 	
 	@RequestMapping(value="IngredienteEliminado" , method=RequestMethod.POST)

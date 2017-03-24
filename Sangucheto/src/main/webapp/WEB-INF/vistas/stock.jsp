@@ -100,7 +100,13 @@
 						
 			</div>
 		</c:forEach>
-	
+		
+		<form action=".">
+			<div class="btn-group">
+				<button type="submit" class="btn btn-info">Volver al Menú Principal</button></li>
+			</div>
+		</form>
+		
 	</div>
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

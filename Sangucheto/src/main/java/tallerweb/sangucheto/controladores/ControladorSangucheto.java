@@ -21,24 +21,43 @@ public class ControladorSangucheto {
 	 }
 
 	@RequestMapping(path="/sangucheto")
-	public ModelAndView irASangucheto(){
+	public ModelAndView irASangucheto(String mensaje){
 		ModelMap mm = new ModelMap();
 		mm.put("stock", Stock.getInstance().obtenerStock());
 		mm.put("sangucheto", Sanguchetto.getInstance());
+		mm.put("mensaje", mensaje);
 		return new ModelAndView("sangucheto", mm);
 	}
 	
 	@RequestMapping(value="eliminarIngrediente", method=RequestMethod.POST)
 	public ModelAndView elminarIngrediente(@ModelAttribute("ingrediente") Ingrediente ingrediente){
+		// Elimino el ingrediente seleccionado y restauro el stock
+		Integer cantidad =  Sanguchetto.getInstance().obtenerCantidadDeIngrediente(ingrediente);
+		Stock.getInstance().agregarStock(ingrediente, cantidad);
 		Sanguchetto.getInstance().eliminarIngrediente(ingrediente);
-		return irASangucheto();
+		String mensaje = "Se ha eliminado el ingrediente " + ingrediente.getNombre() + "<br><br>";
+		mensaje += "Se ha restaurado el stock en " + cantidad + " unidades";
+		return irASangucheto(mensaje);
 	}
 	
 	@RequestMapping(value="agregarIngrediente", method=RequestMethod.POST)
 	public ModelAndView agregarIngrediente(@RequestParam("ingredienteAgregado") String nombreIngrediente,
 										@RequestParam("cantidad") Integer cantidad){
-		Sanguchetto.getInstance().agregarIngrediente(Stock.getInstance().obtenerIngrediente(nombreIngrediente), cantidad);
-		return irASangucheto();
+		// Si la cantidad se envia vacía o es menor a 1 se pone por defecto en 1 
+		if(cantidad == null || cantidad < 1)
+			cantidad = 1;
+		// Se crea el mensaje y se obtiene el ingrediente del stock
+		String mensaje = "";
+		Ingrediente ing = Stock.getInstance().obtenerIngrediente(nombreIngrediente);
+		// Se comprueba que haya stock suficiente, en caso afirmativo se resta del stock, caso contrario se muestra mensaje de error
+		if(Stock.getInstance().obtenerStockDisponible(ing) >= cantidad){
+			Sanguchetto.getInstance().agregarIngrediente(ing, cantidad);
+			Stock.getInstance().comprarIngrediente(ing, cantidad);
+			mensaje = "Se agrego una cantidad de " + cantidad + " del ingrediente " + nombreIngrediente;
+		}else{
+			mensaje = "No hay suficiente stock del ingrediente " + nombreIngrediente;
+		}
+		return irASangucheto(mensaje);
 	}
 }
 

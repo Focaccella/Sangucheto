@@ -109,5 +109,14 @@ public class Sanguchetto {
 		return ingredientes.containsKey(ingrediente);
 	}
 	
+	/**
+	 * Obtiene la cantidad de un ingrediente en el Sangucheto<br>
+	 * @param ingrediente
+	 * @return
+	 */
+	public Integer obtenerCantidadDeIngrediente(Ingrediente ingrediente){
+		return ingredientes.get(ingrediente);
+	}
+	
 	
 }
