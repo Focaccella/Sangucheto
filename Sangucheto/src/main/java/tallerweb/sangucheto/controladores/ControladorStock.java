@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.sangucheto.modelo.Ingrediente;
+import tallerweb.sangucheto.modelo.Sanguchetto;
 import tallerweb.sangucheto.modelo.Stock;
 
 @Controller
@@ -45,16 +46,15 @@ public class ControladorStock {
 	public ModelAndView modificarStock(@ModelAttribute("ingrediente")Ingrediente ingrediente, @RequestParam(value="cantidadAIngresar") Integer cantidad ){
 		if(cantidad != 0)
 			Stock.getInstance().agregarStock(ingrediente, cantidad);
-		ModelMap model = new ModelMap("stock", Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock", model);
+		return irAStock();
 	}
 	
 	@RequestMapping(value="IngredienteEliminado" , method=RequestMethod.POST)
 	public ModelAndView eliminarIngrediente(@ModelAttribute("ingrediente")Ingrediente ingrediente ){
-		ModelMap model = new ModelMap();
+		// Elimino el ingrediente, en caso de ser un ingrediente del Sangucheto también lo elimino del mismo
 		Stock.getInstance().eliminarIngrediente(ingrediente);
-		model.put("stock",Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock" , model);
+		Sanguchetto.getInstance().eliminarIngrediente(ingrediente);
+		return irAStock();
 	}
 	
 	@RequestMapping(value="IngredienteAgregado", method=RequestMethod.POST)
@@ -64,8 +64,7 @@ public class ControladorStock {
 		ModelMap model = new ModelMap();
 		ingrediente.setPrecio(precio.doubleValue());
 		Stock.getInstance().agregarIngrediente(ingrediente);
-		model.put("stock", Stock.getInstance().obtenerStock());
-		return new ModelAndView("stock" , model);
+		return irAStock();
 	}
 
 }
