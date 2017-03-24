@@ -9,21 +9,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Armar Sangucheto</title>
 
+<link href="css/estilos.css" rel="stylesheet"/>
+<!-- Font para sangucheto -->
+<link href="https://fonts.googleapis.com/css?family=Dosis|Indie+Flower|Nova+Oval" rel="stylesheet">
+
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="cremita-fondo">
 
 	<div class="container">	
 		<br>
-	    <ul class="nav nav-pills" role="tablist">
+	    <ul class="nav nav-pills">
 	        <li role="presentation"><a href=".">Home</a></li>
 	        <li role="presentation" class="active"><a href="sangucheto">Arma tu Sangucheto</a></li>
 	        <li role="presentation"><a href="stock">Administrar Stock</a></li>
      	</ul>
+     	<div class="col-md-12  text-center margen-abajo">
+     		<h1 class="indie-font muy-grande color-sangucheto">Sanguchetto <img style="width:2cm;" src="images/comprar.png"/> </h1>	
+     	</div>
 		<c:forEach items="INGREDIENTE,CONDIMENTO" var="tipo">
 			<div class="page-header">			
-				<h1>Agregar ${tipo.toLowerCase()}s</h1>			
+				<h2 class="dosis-font">Agregar ${tipo.toLowerCase()}s</h2>			
 			</div>				
 			<div class="container form-group">	
 				<form action="agregarIngrediente" method="POST" class="form">				
@@ -46,7 +53,7 @@
 			</div>		
 		</c:forEach>		
 		<div class="page-header">			
-			<h1>Mi Sangucheto</h1>			
+			<h1 class="dosis-font">Mi Sangucheto</h1>			
 		</div>		
 	    <table class="table table-striped">	    
 			<thead>
@@ -61,7 +68,7 @@
 	      	<tbody>	      		
 	      		<c:forEach items="${sangucheto.ingredientes}" var="item">
 	        		<tr>
-	        			<td>${item.value}</td>
+	        			<td> <img style="width:1cm;" src="images/carrito.png" /> ${item.value}</td>
 			        	<td>${item.key.nombre}</td>
 			          	<td>$ ${item.key.precio}</td>
 			          	<td>$ ${item.key.precio * item.value}</td>			          	
