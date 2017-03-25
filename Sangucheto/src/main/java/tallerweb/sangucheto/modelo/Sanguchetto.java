@@ -97,7 +97,10 @@ public class Sanguchetto {
 	//Cantidad de descuento
 	public String getDescuento(){
 		DecimalFormat df = new DecimalFormat("0.00");
-		return df.format(getPrecio()*valorDescuento());
+		if(getPrecio()>=100){
+				return df.format(getPrecio()*valorDescuento());
+		}
+		else return df.format(0.0);
 	}
 	
 	public Double valorDescuento(){

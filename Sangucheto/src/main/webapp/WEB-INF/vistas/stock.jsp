@@ -87,7 +87,7 @@
 													<form:input type="hidden" path="nombre" value="${item.key.nombre}" readonly="true" class="form-control"/>
 												</div>
 												<div class="form-group">
-													<label for="aceptar" class="label-control"><strong>ï¿½Eliminar Ingrediente?</strong> </label>
+													<label for="aceptar" class="label-control"><strong>¿Eliminar Ingrediente?</strong> </label>
 												</div>
 									    		<div class="form-group">
 									    			<button type="submit" class="btn btn-primary form-control">Aceptar</button>
