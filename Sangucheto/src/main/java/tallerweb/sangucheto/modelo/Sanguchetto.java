@@ -28,7 +28,7 @@ public class Sanguchetto {
 	 * @param ingrediente
 	 */
 	public void agregarIngrediente(Ingrediente ingrediente, Integer cantidad){
-		if(existeIngrediente(ingrediente))
+		if(contieneIngrediente(ingrediente))
 			ingredientes.put(ingrediente, ingredientes.get(ingrediente) + cantidad);
 		else
 			ingredientes.put(ingrediente, cantidad);
@@ -71,8 +71,9 @@ public class Sanguchetto {
 		}
 		return soloCondimentos;
 	}	
+	
 	/**
-	 * Devuelve el precio total del sanguchetto.<br>
+	 * Devuelve el precio sin descuento del sanguchetto.<br>
 	 * @return
 	 */
 	public Double getPrecio(){
@@ -84,26 +85,29 @@ public class Sanguchetto {
 		return precio;
 	}
 	
-	//TOTAL
-	public String getPrecioConDescuento(){
-		Double precio = getPrecio();
-		DecimalFormat df = new DecimalFormat("0.00");
-		if(precio>=100){
-			return df.format(precio*(1-valorDescuento())); 
-		}
-		else return df.format(precio);
+	/**
+	 * Devuelve el precio total con descuento del sanguchetto.<br>
+	 * @return
+	 */
+	public Double getPrecioConDescuento(){
+		return getPrecio() - getDescuento();
 	}
 	
-	//Cantidad de descuento
-	public String getDescuento(){
-		DecimalFormat df = new DecimalFormat("0.00");
-		if(getPrecio()>=100){
-				return df.format(getPrecio()*valorDescuento());
-		}
-		else return df.format(0.0);
+	/**
+	 * Devuelve el descuento.<br>
+	 * @return
+	 */
+	public Double getDescuento(){
+		if(getPrecio() >= 100)
+			return getPrecio() * porcentajeDescuento();
+		return 0.0;
 	}
 	
-	public Double valorDescuento(){
+	/**
+	 * Devuelve el porcentaje de descuento.<br>
+	 * @return
+	 */
+	private Double porcentajeDescuento(){
 		return 0.1; // 10% de descuento
 	}
 	
@@ -125,7 +129,7 @@ public class Sanguchetto {
 	 * @param ingrediente
 	 * @return
 	 */
-	public Boolean existeIngrediente(Ingrediente ingrediente){
+	public Boolean contieneIngrediente(Ingrediente ingrediente){
 		return ingredientes.containsKey(ingrediente);
 	}
 	

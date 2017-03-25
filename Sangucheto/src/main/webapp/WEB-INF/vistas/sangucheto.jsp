@@ -47,7 +47,7 @@
 	      				<input type="text" class="form-control" placeholder="Cantidad" name="cantidad">	  				
 	      			</div>					
 					<div class="col-md-2 form-group">					
-						<button class="btn btn-primary">Agregar</button>					
+						<button class="btn btn-warning">Agregar</button>					
 					</div>				
 				</form>				
 			</div>		
@@ -87,7 +87,7 @@
 								    			<label class="label-control"><strong>¿Eliminar Ingrediente?</strong></label>
 								    		</div>
 								    		<div class="form-group">
-								    			<button type="submit" class="btn btn-primary form-control">Aceptar</button>
+								    			<button type="submit" class="btn btn-danger form-control">Aceptar</button>
 								    		</div>
 								  		</form:form>
 								  	</div>
@@ -99,20 +99,23 @@
 	       		</c:forEach>
 	      	</tbody>
 	    </table>	    
-	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h2>
-	    <h3 align="right"><small>Descuento:</small> $ ${sangucheto.getDescuento()}</h3>	
-	    <h1 align="right"><small>Total:</small> $ ${sangucheto.getPrecioConDescuento()}</h1>		
-	    <c:if test="${mensaje != null || mensaje != 'Comprado'}">
+	    <h2 align="right"><small>Subtotal:</small> $ ${String.format("%.2f", sangucheto.getPrecio())}</h2>
+	    <h3 align="right"><small>Descuento:</small> $ ${String.format("%.2f", sangucheto.getDescuento())}</h3>	
+	    <h1 align="right"><small>Total:</small> $ ${String.format("%.2f", sangucheto.getPrecioConDescuento())}</h1>		
+	    <c:if test="${mensaje != null && !mensaje.equals(\"Comprado\")}">
 		    <div class="alert alert-${tipoMensaje}" role="alert">
 	       		${mensaje}
 	      	</div>
       	</c:if>
       	<form action="comprar"> 
-			<input type="image" class="center-block col-md-2" style="float: none;" src="images/boton-comprar.png" />
+      		<div class="text-center">
+      			<button class="btn btn-danger"><h3><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>  Comprar</h3></button>
+			</div>
 		</form>
+		<br>
 	</div>
-	<c:if test="${mensaje == 'Comprado' }">
-		<script type="text/javascript">alert("Gracias por su compra!!");</script>
+	<c:if test="${mensaje.equals(\"Comprado\")}">
+		<script type="text/javascript">alert("¡Gracias por su compra!");</script>
 	</c:if>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>

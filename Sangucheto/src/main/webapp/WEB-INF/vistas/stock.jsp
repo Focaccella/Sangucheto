@@ -70,14 +70,14 @@
 								    			<input id="cantidad" type="number" name="cantidadAIngresar" class="form-control" value="0" />
 								    		</div>
 								    		<div class="form-group">	
-								    			<button type="submit" class="btn btn-primary form-control">Aceptar</button>
+								    			<button type="submit" class="btn btn-warning form-control">Aceptar</button>
 								    		</div>
 									  	</form:form>
 								  	</div>
 								  </ul>
 								</div>
 								<div class="btn-group">
-								  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+								  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
 								 	 Eliminar <span class="caret"></span>
 								  </button>
 									<ul class="dropdown-menu" role="menu">
@@ -90,7 +90,7 @@
 													<label for="aceptar" class="label-control"><strong>¿Eliminar Ingrediente?</strong> </label>
 												</div>
 									    		<div class="form-group">
-									    			<button type="submit" class="btn btn-primary form-control">Aceptar</button>
+									    			<button type="submit" class="btn btn-warning form-control">Aceptar</button>
 									    		</div>							    		
 									  		</form:form>
 										</div>
@@ -103,7 +103,7 @@
 		      	</tbody>
 		    </table>
        			<div class="btn-group">
-					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
 						Agregar nuevo ${tipo.toLowerCase()} <span class="caret"></span>
 					</button> 
 					<ul class="dropdown-menu" role="menu">
@@ -123,12 +123,13 @@
 									<form:input path="tipo" style="display: none;" value="${tipo}" class="form-control"/>
 								</div>
 								<div class="form-group">
-									<button type="submit" class="btn btn-primary form-control">Aceptar</button>
+									<button type="submit" class="btn btn-danger form-control">Aceptar</button>
 								</div>															
 							</form:form>
 						</div>
 					</ul>
 				</div>
+			<br>
 		</c:forEach>
 		<br>
 		<c:if test="${mensaje != null}">
