@@ -1,8 +1,7 @@
 package tallerweb.sangucheto.modelo;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 public class Sanguchetto {
@@ -83,6 +82,26 @@ public class Sanguchetto {
 			precio += ingrediente.getPrecio() * ingredientes.get(ingrediente);
 		}
 		return precio;
+	}
+	
+	//TOTAL
+	public String getPrecioConDescuento(){
+		Double precio = getPrecio();
+		DecimalFormat df = new DecimalFormat("0.00");
+		if(precio>=100){
+			return df.format(precio*(1-valorDescuento())); 
+		}
+		else return df.format(precio);
+	}
+	
+	//Cantidad de descuento
+	public String getDescuento(){
+		DecimalFormat df = new DecimalFormat("0.00");
+		return df.format(getPrecio()*valorDescuento());
+	}
+	
+	public Double valorDescuento(){
+		return 0.1; // 10% de descuento
 	}
 	
 	/**

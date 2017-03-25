@@ -99,14 +99,21 @@
 	       		</c:forEach>
 	      	</tbody>
 	    </table>	    
-	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h2>	
-	    <c:if test="${mensaje != null}">
+	    <h2 align="right"><small>Subtotal:</small> $ ${sangucheto.getPrecio()}</h2>
+	    <h3 align="right"><small>Descuento:</small> $ ${sangucheto.getDescuento()}</h3>	
+	    <h1 align="right"><small>Total:</small> $ ${sangucheto.getPrecioConDescuento()}</h1>		
+	    <c:if test="${mensaje != null || mensaje != 'Comprado'}">
 		    <div class="alert alert-${tipoMensaje}" role="alert">
 	       		${mensaje}
 	      	</div>
       	</c:if>
+      	<form action="comprar"> 
+			<input type="image" class="center-block col-md-2" style="float: none;" src="images/boton-comprar.png" />
+		</form>
 	</div>
-
+	<c:if test="${mensaje == 'Comprado' }">
+		<script type="text/javascript">alert("Gracias por su compra!!");</script>
+	</c:if>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

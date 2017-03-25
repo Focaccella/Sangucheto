@@ -2,6 +2,10 @@
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.achicar-imagen{
+	width: 40%;
+}
+
 .cremita-fondo{
 	background-color: #ffffe6;
 }
@@ -70,8 +74,15 @@
 	color: #4d1300;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    color:black;
-    background-color:#fcd900;
-    }
+ul.nav>li.active>a, 
+ul.nav>li.active>a:focus, 
+ul.nav>li.active>a:hover {
+    color: #ffffff;
+    background-color: #e63900;
+}
+
+ul.nav>li>a, 
+ul.nav>li>a:focus, 
+ul.nav>li>a:hover {
+    color: #000000;
 }

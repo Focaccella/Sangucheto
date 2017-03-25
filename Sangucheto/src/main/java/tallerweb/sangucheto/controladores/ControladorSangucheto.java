@@ -77,5 +77,20 @@ public class ControladorSangucheto {
 		}
 		return irASangucheto(mensaje, tipoMensaje);
 	}
+	
+	@RequestMapping(value="comprar")
+	public ModelAndView comprar (){
+		String mensaje = "";
+		String tipoMensaje="success";
+		if(Sanguchetto.getInstance().verIngredientes().size()==0){
+			mensaje="El sanguche no tiene ingredientes";
+			tipoMensaje="danger";
+		}
+		else{
+			Sanguchetto.getInstance().vaciar();
+			mensaje="Comprado";
+		}
+		return irASangucheto(mensaje, tipoMensaje);
+	}
 }
 
