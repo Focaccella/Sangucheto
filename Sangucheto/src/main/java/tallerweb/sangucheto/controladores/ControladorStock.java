@@ -72,7 +72,7 @@ public class ControladorStock {
 	
 	@RequestMapping(value="ingredienteAgregado", method=RequestMethod.POST)
 	public ModelAndView agregarIngrediente(@ModelAttribute("ingrediente")Ingrediente ingrediente, 
-			@RequestParam(value="precio", defaultValue="0")Integer precio ){
+			@RequestParam(value="precio", defaultValue="0")Double precio ){
 		// Se crea el mensaje
 		String mensaje = "";
 		String tipoMensaje = "success";
@@ -83,7 +83,7 @@ public class ControladorStock {
 			return irAStock(mensaje, tipoMensaje);
 		}
 		// Se le establece el precio
-		ingrediente.setPrecio(precio.doubleValue());
+		ingrediente.setPrecio(precio);
 		// Si se puede agregar indica un mensaje de exito, caso contrario que ya existia
 		if(Stock.getInstance().agregarIngrediente(ingrediente)){
 			mensaje = "<strong>Nuevo Ingrediente.</strong> Se ha añadido correctamente el ingrediente " + ingrediente.getNombre() + ".";

@@ -83,15 +83,21 @@ public class ControladorSangucheto {
 		String mensaje = "";
 		String tipoMensaje="success";
 		// Si el sangucheto tiene ingredientes (no solo condimentos), se realiza la compra
-		if(Sanguchetto.getInstance().verIngredientes().size() > 0){
-			Sanguchetto.getInstance().vaciar();
-			mensaje="Comprado";
-		}
-		else{
-			mensaje="<strong>El Sangucheto no posee ingredientes.</strong> Debe agregar al menos un ingrediente para realizar la compra.";
-			tipoMensaje="danger";
-		}
+		if(Sanguchetto.getInstance().verIngredientes().size() > 0)
+			return confirmar();
+		mensaje="<strong>El Sangucheto no posee ingredientes.</strong> Debe agregar al menos un ingrediente para realizar la compra.";
+		tipoMensaje="danger";
 		return irASangucheto(mensaje, tipoMensaje);
 	}
+	
+	@RequestMapping(path="/confirmacion")
+	public ModelAndView confirmar(){
+		ModelMap mm = new ModelMap();
+		mm.put("sangucheto", Sanguchetto.getInstance().getIngredientes().clone());
+		mm.put("preciofinal", Sanguchetto.getInstance().getPrecioConDescuento());
+		Sanguchetto.getInstance().vaciar();
+		return new ModelAndView("confirmacion", mm);
+	}
+
 }
 

@@ -7,7 +7,7 @@ import java.util.Map;
 public class Sanguchetto {
 
 	private static Sanguchetto instance = new Sanguchetto();
-	private Map<Ingrediente, Integer> ingredientes = new HashMap<>();
+	private HashMap<Ingrediente, Integer> ingredientes = new HashMap<>();
 	
 	private Sanguchetto(){}
 	
@@ -37,7 +37,7 @@ public class Sanguchetto {
 	/**
 	 * Obtener los ingredientes
 	 */
-	public Map<Ingrediente, Integer> getIngredientes(){
+	public HashMap<Ingrediente, Integer> getIngredientes(){
 		return ingredientes;
 	}
 	

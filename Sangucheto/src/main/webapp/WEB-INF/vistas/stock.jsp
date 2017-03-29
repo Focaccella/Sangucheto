@@ -55,7 +55,7 @@
 				          	<td class="col-sm-3">	
 				          		<div class="btn-group">
 								  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-								  	Agregar <span class="caret"></span>
+								  	Modificar <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
 								  	<div class="col-lg-12">
@@ -77,7 +77,7 @@
 								  </ul>
 								</div>
 								<div class="btn-group">
-								  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+								  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
 								 	 Eliminar <span class="caret"></span>
 								  </button>
 									<ul class="dropdown-menu" role="menu">
@@ -103,7 +103,7 @@
 		      	</tbody>
 		    </table>
        			<div class="btn-group">
-					<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+					<button type="button" class="btn btn-danger dropdown-toggle" style="background-color: #b3b300; border-color: #b3b300;" data-toggle="dropdown">
 						Agregar nuevo ${tipo.toLowerCase()} <span class="caret"></span>
 					</button> 
 					<ul class="dropdown-menu" role="menu">
@@ -117,7 +117,7 @@
 									<form:input path="nombre" placeholder="Nombre" class="form-control"/>
 								</div>
 								<div class="form-group">
-									<input type="number" name="precio" placeholder="Precio" class="form-control"/>
+									<input type="number" min="0.01" step="0.01" name="precio" placeholder="Precio" class="form-control"/>
 								</div>
 								<div class="form-group">
 									<form:input path="tipo" style="display: none;" value="${tipo}" class="form-control"/>
